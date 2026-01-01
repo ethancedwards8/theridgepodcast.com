@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# thanks chatgpt
+
 set -e
 
 shopt -s nullglob
