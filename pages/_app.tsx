@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-import Header from '../components/header.tsx';
+import Header from '../components/header';
 
 export default function App({ Component, pageProps }: AppProps) {
     let description = "Interviews from the Blue Ridge/Appalachian area.";

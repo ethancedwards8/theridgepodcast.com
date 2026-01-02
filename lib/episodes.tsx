@@ -27,6 +27,6 @@ export function getAllPosts() {
     return posts;
 }
 
-export function getArticleFromSlug(slug) {
+export function getArticleFromSlug(slug: string) {
     return getAllPosts().find(x => x.slug === slug);
 }
