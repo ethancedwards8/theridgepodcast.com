@@ -1,0 +1,36 @@
+@media (width > 800px) {
+.dateaudio {
+  display: grid;
+  grid-auto-columns: repeat(2, 1fr);
+  justify-items: center;
+
+  h3 {
+    grid-column: 1;
+  }
+
+  div {
+    grid-column: 2;
+    .player {
+      width: 100%;
+    }
+  }
+}
+}
+
+@media (width <= 800px) {
+.dateaudio {
+  grid-auto-rows: repeat(2, 1fr);
+
+  h3 {
+    text-align: center;
+    grid-row: 1;
+  }
+
+  div {
+    grid-row: 2;
+    .player {
+      width: 85%;
+    }
+  }
+}
+}

@@ -11,7 +11,9 @@
     "next-seo": "^6.8.0",
     "podcast": "^2.0.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-audio-play": "^1.0.4",
+    "react-dom": "19.2.3",
+    "react-icons": "^5.5.0"
   },
   "scripts": {
     "dev": "next dev",

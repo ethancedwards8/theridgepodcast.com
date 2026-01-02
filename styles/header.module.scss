@@ -1,7 +1,6 @@
 .nav {
   padding: 10px;
   background: rgba(26, 41, 108);
-  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,10 +14,10 @@
     text-decoration: underline;
   }
 
-  h1 {
+  h2 {
+    font-size: 2em;
     margin: 0 60px;
     color: white;
-    text-decoration: none;
   }
 
 
@@ -34,11 +33,30 @@
 
     li {
       display: inline-block;
-      margin: 0 20px;
+      padding: 0 3%;
 
       a {
         color: white;
-        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+
+@media (width <= 800px) {
+  .nav {
+    img {
+      width: 100;
+    }
+
+    h2 {
+      margin: 10px;
+    }
+
+    ul {
+      li {
+        // margin: 0 10px;
       }
     }
   }

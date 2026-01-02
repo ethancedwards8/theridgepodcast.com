@@ -6,7 +6,7 @@ export default function Header() {
         <nav className={styles.nav}>
             <Link href="/"><img src="/favicon.svg" alt="The Ridge Podcast Logo" /></Link>
             <div>
-                <Link href="/"><h1>The Ridge Podcast</h1></Link>
+                <Link href="/"><h2>The Ridge Podcast</h2></Link>
                 <ul>
                     <li><Link href="/">Home</Link></li>
                     <li><Link href="/podcast">Episodes</Link></li>

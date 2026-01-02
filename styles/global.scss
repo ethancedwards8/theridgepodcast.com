@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    font-family: 'Roboto';
+}
+
+a {
+    text-decoration: none;
+    color: rgba(26, 41, 108);
+    transition: color .15s ease-out 75ms;
+}
+
+a:hover {
+    color: #1C86FF;
+}
+
+// without header
+.body {
+  padding: 0 10%;
+}

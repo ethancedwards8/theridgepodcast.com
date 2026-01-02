@@ -2,6 +2,8 @@ import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import Header from '../components/header';
 
+import '../styles/global.scss';
+
 export default function App({ Component, pageProps }: AppProps) {
     let description = "Interviews from the Blue Ridge/Appalachian area.";
 
@@ -27,8 +29,8 @@ export default function App({ Component, pageProps }: AppProps) {
         additionalLinkTags={[
           {
             rel: "icon",
-            href: "/favicon.png",
-            type: "image/png",
+            href: "/favicon.svg",
+            type: "image/svg",
             sizes: "any",
           },
         ]}
@@ -37,7 +39,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <div>
         <Header />
 
-        <Component {...pageProps} />
+        <div className="body">
+            <Component {...pageProps} />
+        </div>
       </div>
 
     </>

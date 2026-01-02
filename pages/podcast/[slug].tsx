@@ -5,16 +5,33 @@ import { MDXRemote } from 'next-mdx-remote';
 import path from 'path';
 import dayjs from 'dayjs';
 
-export default function slug({ frontMatter, source, slug }) {
+import { PodcastTrailer } from '../../components/podcasttrailer';
+const components = { PodcastTrailer };
+
+import { AudioPlayer } from 'react-audio-play';
+
+import styles from '../../styles/podcast.module.scss';
+
+const CLOUDFLARE_URL = "https://media.theridgepodcast.com/";
+
+export default function slug({ episode }) {
+    let frontMatter = episode.frontMatter;
+    let source = episode.source;
+    let slug = episode.slug;
 
     return (
         <>
-          <div>
+          <div className={styles.episode}>
                 <h1>{frontMatter.title}</h1>
-                <h3>{dayjs(frontMatter.date).format('MMMM D, YYYY')}</h3>
+                <div className={styles.dateaudio}>
+                    <h3>{dayjs(frontMatter.date).format('MMMM D, YYYY')}</h3>
+                    <div>
+                        <AudioPlayer className={styles.player} src={CLOUDFLARE_URL + episode.slug + '.mp3'} />
+                    </div>
+                </div>
                 <hr/>
                 <main>
-                  <MDXRemote {...source} />
+                  <MDXRemote {...source} components={components} />
                 </main>
           </div>
         </>
@@ -27,11 +44,15 @@ export async function getStaticProps({ params: { slug } }) {
     const frontMatter = post.frontMatter;
     const source = await serialize(post.content);
 
+    let episode = {
+        frontMatter,
+        source,
+        slug,
+    };
+
     return {
         props: {
-            frontMatter,
-            source,
-            slug
+            episode
         }
     };
 }

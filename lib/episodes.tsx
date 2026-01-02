@@ -9,6 +9,10 @@ export function getPostsSlugs() {
     return fs.readdirSync(EPISODES_PATH);
 }
 
+export function getRecentPost() {
+    return getAllPostsNoContent()[0];
+}
+
 export function getAllPostsNoContent() {
     const posts = getPostsSlugs().map(filename => {
         const markdownWithMeta = fs.readFileSync(join('episodes', filename), 'utf-8');
