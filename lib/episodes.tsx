@@ -1,4 +1,3 @@
-// copied from my old website
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
@@ -31,4 +30,3 @@ export function getAllPosts() {
 export function getArticleFromSlug(slug) {
     return getAllPosts().find(x => x.slug === slug);
 }
-

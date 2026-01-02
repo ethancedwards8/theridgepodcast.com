@@ -12,7 +12,6 @@ export default function slug({ frontMatter, source, slug }) {
           <div>
                 <h1>{frontMatter.title}</h1>
                 <h3>{dayjs(frontMatter.date).format('MMMM D, YYYY')}</h3>
-                <h4>{frontMatter.author}</h4>
                 <hr/>
                 <main>
                   <MDXRemote {...source} />
@@ -24,7 +23,7 @@ export default function slug({ frontMatter, source, slug }) {
 
 
 export async function getStaticProps({ params: { slug } }) {
-    const post = getAllPosts().find(x => x.slug === slug);
+    const post = getArticleFromSlug(slug);
     const frontMatter = post.frontMatter;
     const source = await serialize(post.content);
 

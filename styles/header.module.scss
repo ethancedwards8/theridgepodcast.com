@@ -1,0 +1,45 @@
+.nav {
+  padding: 10px;
+  background: rgba(26, 41, 108);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    margin: 0 60px;
+    color: white;
+    text-decoration: none;
+  }
+
+
+  img {
+    width: 150px;
+  }
+
+  ul {
+    justify-content: space-between;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+
+    li {
+      display: inline-block;
+      margin: 0 20px;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
