@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import { NextSeo } from 'next-seo';
 
-import { getAllPosts } from '../../lib/episodes';
+import { getAllPosts, getAllPostsNoContent } from '../../lib/episodes';
 
 export default function Blog({ posts }) {
     return (
@@ -29,7 +29,7 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-    const posts = getAllPosts();
+    const posts = getAllPostsNoContent();
 
     return {
         props: {
