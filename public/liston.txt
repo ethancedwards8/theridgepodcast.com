@@ -1,0 +1,13 @@
+https://static.getpodpage.com/public/images/players-light-v1/badges/amazonmusic-badge.05bcd0c56fcc.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/applepodcasts-badge.3ef14700864f.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/audible-badge.b41a44dd7be0.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/fountain-badge.d612bb403642.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/pandora-badge.0c0badaf8336.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/pocketcasts-badge.e9fe840782e0.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/rss-badge.01aed3526839.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/soundcloud-badge.06e8dce72169.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/youtube_music-badge.f97767282d6f.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/overcast-badge.927ede9e3944.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/iheartradio-badge.d9724b75b304.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/spotify-badge.96aadbd23096.svg
+https://static.getpodpage.com/public/images/players-light-v1/badges/youtube_player-badge.9bfab4521c68.svg
