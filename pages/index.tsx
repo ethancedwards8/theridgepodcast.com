@@ -39,8 +39,9 @@ export default function Home({ recentPost, posts }) {
         <Head>
             {generateNextSeo({
                 canonical: "https://theridgepodcast.com/",
-                description: "The Ridge Podcast",
+                description: "The Ridge Podcast Home Page",
                 openGraph: {
+                    title: "The Ridge Podcast",
                     url: 'https://theridgepodcast.com/',
                 }
             })}
