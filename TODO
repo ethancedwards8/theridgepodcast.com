@@ -1,27 +1,15 @@
-render episodes under /podcast/ with mdx files + slug
-/podcast/ itself is a list of episodes (similar to /blog). consider rendering with youtube?
-inline audio on page
-include dates! speakers! categories!
+consider rendering /podcast with youtube (for those that apply)?
+include categories!
 
 /speaker/
 add some sort of speaker db?
 
 maybe have audio files available under /podcast-download/
 
-/about is about
-redir /about-us to /about
-
-links to:
-Subscribe: Amazon | Audible | Apple Podcasts | Google Podcasts | Overcast | Pandora | PocketCasts | RSS | Spotify | YouTube
-
 xml/rss podcast feed:
 https://theridgepodcast.com/feed/podcast
 https://theridgepodcast.com/feed/podcast/the-ridge-podcast/
 
-index/home has most recent episode + play feed (maybe to last part)
-
-
 write a script to add an episode: take in title, speakers, audio file to upload to cloudflare, tags...
-
 
 figure out scheduling. maybe just an at command with docker refresh? not sure...!

@@ -13,6 +13,10 @@
       devShell = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
+
+          pythonEnvironment = pkgs.python3.withPackages (ps: with ps; [
+              pyyaml
+          ]);
         in
         with pkgs;
         mkShell {
@@ -21,6 +25,7 @@
               git
               mdcat
               nodejs
+              pythonEnvironment
               pnpm
           ];
         }
