@@ -38,8 +38,8 @@ export default function About() {
         <p>
         For the first 72 episodes, Ethan Carter Edwards was joined by Jeffrey
         "Luke" Watson during the interviews as a full-time co-host. After
-        moving to college, however, Luke became a part-time co-host, joining in
-        episodes as time permitted.
+        starting at Virginia Tech, however, Luke became a part-time co-host,
+        joining in episodes as time permitted.
         </p>
         <p>
         When the podcast was created, it was a weekly production. Every week
