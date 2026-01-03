@@ -37,7 +37,7 @@ export default function Home({ recentPost, posts }) {
       <>
         <h1>Welcome to The Ridge Podcast</h1>
         <h2>Check out our most recent episode!</h2>
-        <p style={{ fontSize: "1.5em" }}>{recentPost.frontMatter.title}</p>
+        <Link href={'/podcast/' + recentPost.frontMatter.slug}><p style={{ fontSize: "1.5em" }}>{recentPost.frontMatter.title}</p></Link>
         <AudioPlayer src={CLOUDFLARE_URL + recentPost.slug + '.mp3'} />
         <br/>
         <div className={styles.listenon}>
