@@ -49,38 +49,48 @@ def add_speaker_to_mdx(file_path, speaker_slug):
         print(f"Error writing to {file_path}: {e}")
         return False
 
+def extract_episode_number(filename):
+    """Extract episode number from filename"""
+    match = re.match(r'(\d+)', filename)
+    if match:
+        return int(match.group(1))
+    return None
+
 def main():
-    """Main function to process files"""
-    if len(sys.argv) < 2:
-        print("Usage: python add_speaker.py <mdx_files...>")
-        print("Example: python add_speaker.py *.mdx")
-        print("Example: python add_speaker.py file1.mdx file2.mdx")
+    """Main function to process files 1-72"""
+    speaker_slug = "jeffrey-luke-watson"
+    
+    # Find all MDX files
+    all_mdx_files = glob.glob("*.mdx")
+    
+    if not all_mdx_files:
+        print("No MDX files found in current directory")
         sys.exit(1)
     
-    mdx_patterns = sys.argv[1:]
-    speaker_slug = "ethan-carter-edwards"
+    # Filter files 1-72
+    files_to_update = []
+    for file in all_mdx_files:
+        episode_num = extract_episode_number(file)
+        if episode_num is not None and 1 <= episode_num <= 72:
+            files_to_update.append(file)
     
-    # Expand glob patterns and process files
-    mdx_files = []
-    for pattern in mdx_patterns:
-        matched_files = glob.glob(pattern)
-        if matched_files:
-            mdx_files.extend(matched_files)
-        else:
-            # If no glob match, treat as literal filename
-            mdx_files.append(pattern)
-    
-    if not mdx_files:
-        print("No MDX files found")
+    if not files_to_update:
+        print("No files numbered 1-72 found")
         sys.exit(1)
+    
+    # Sort files by episode number
+    files_to_update.sort(key=lambda f: extract_episode_number(f))
+    
+    print(f"Found {len(files_to_update)} files numbered 1-72")
+    print(f"Adding speaker: {speaker_slug}\n")
     
     # Process each file
     updated_count = 0
-    for mdx_file in mdx_files:
+    for mdx_file in files_to_update:
         if add_speaker_to_mdx(mdx_file, speaker_slug):
             updated_count += 1
     
-    print(f"\nSummary: Updated {updated_count} of {len(mdx_files)} files")
+    print(f"\nSummary: Updated {updated_count} of {len(files_to_update)} files")
 
 if __name__ == "__main__":
     main()
