@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --trp-color: rgba(26, 41, 108);
 }
 
 * {
@@ -13,7 +15,7 @@ body {
 
 a {
     text-decoration: none;
-    color: rgba(26, 41, 108);
+    color: var(--trp-color);
     transition: color .15s ease-out 75ms;
 }
 
