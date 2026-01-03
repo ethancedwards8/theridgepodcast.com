@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getAllPostsNoContent } from '../lib/episodes';
 import EpisodeCard from '../components/episodecard';
 import { AudioPlayer } from 'react-audio-play';
+import { generateNextSeo } from "next-seo/pages";
 
 import styles from '../styles/index.module.scss';
 
@@ -35,6 +36,15 @@ export default function Home({ recentPost, posts }) {
 
   return (
       <>
+        <Head>
+            {generateNextSeo({
+                canonical: "https://theridgepodcast.com/",
+                description: "The Ridge Podcast",
+                openGraph: {
+                    url: 'https://theridgepodcast.com/',
+                }
+            })}
+        </Head>
         <h1>Welcome to The Ridge Podcast</h1>
         <h2>Check out our most recent episode!</h2>
         <Link href={'/podcast/' + recentPost.frontMatter.slug}><p style={{ fontSize: "1.5em" }}>{recentPost.frontMatter.title}</p></Link>

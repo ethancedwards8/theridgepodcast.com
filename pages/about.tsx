@@ -1,9 +1,24 @@
 import Link from "next/link";
+import Head from "next/head";
+import { generateNextSeo } from "next-seo/pages";
 
 import styles from '../styles/about.module.scss';
 
 export default function About() {
   return (
+    <>
+    <Head>
+        {generateNextSeo({
+            title: "About",
+            canonical: "https://theridgepodcast.com/about",
+            description: "About The Ridge Podcast",
+            openGraph: {
+              url: 'https://theridgepodcast.com/about',
+              title: "About",
+            }
+        })}
+    </Head>
+
     <div className={styles.about}>
         <h1>About Us</h1>
         <p>
@@ -78,6 +93,7 @@ export default function About() {
             </div>
         </div>
     </div>
+    </>
   );
 }
 

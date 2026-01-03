@@ -1,10 +1,12 @@
 import { getAllPosts, getArticleFromSlug } from '../../lib/episodes';
+import Head from 'next/head';
 import fs from 'fs';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import path from 'path';
 import dayjs from 'dayjs';
 
+import { generateNextSeo } from "next-seo/pages";
 import { PodcastTrailer } from '../../components/podcasttrailer';
 const components = { PodcastTrailer };
 
@@ -21,6 +23,17 @@ export default function slug({ episode }) {
 
     return (
         <>
+        <Head>
+            {generateNextSeo({
+                title: frontMatter.title,
+                canonical: "https://theridgepodcast.com/podcast/" + slug,
+                openGraph: {
+                    url: 'https://theridgepodcast.com/podcast/' + slug,
+                    title: frontMatter.title
+                }
+            })}
+        </Head>
+
           <div className={styles.episode}>
                 <h1>{frontMatter.title}</h1>
                 <div className={styles.dateaudio}>
