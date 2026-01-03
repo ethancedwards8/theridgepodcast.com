@@ -55,11 +55,11 @@ export default function About() {
                 </div>
 
                 <p>
-                    Ethan is the owner, host, editor, webmaster, and manager
-                    of The Ridge Podcast. He is 2025 graduate of Carroll
-                    County High School and Wytheville Communtiy College. and
-                    is a student at Harvard. He can be contacted at
-                    ethan@ethancedwards.com.
+                    Ethan is the owner, host, editor, webmaster, and manager of
+                    The Ridge Podcast. He is 2025 graduate of Carroll County
+                    High School and Wytheville Communtiy College. Currently, he
+                    is a first-year at Harvard and can be contacted at
+                    <a href="mailto:ethan@ethancedwards.com"> ethan@ethancedwards.com</a>.
                 </p>
             </div>
             <div className={`${styles.luke} ${styles.host}`}>
