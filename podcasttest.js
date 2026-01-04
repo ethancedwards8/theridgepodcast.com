@@ -1,5 +1,14 @@
 import { Podcast } from 'podcast';
+
+import { v5 as uuid } from 'uuid';
+
 import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+
+const episodesPath = path.join(process.cwd(), 'episodes');
+
 
 const desc = "Interviews from the Blue Ridge/Appalachian area.";
 const email = "theridgepodcast@gmail.com";
@@ -12,7 +21,7 @@ const feed = new Podcast({
     description: desc,
     feedUrl: 'https://theridgepodcast.com/feed/podcast/the-ridge-podcast',
     siteUrl: site,
-    author: author,
+    // author: author,
     copyright: '© 2023-2026 The Ridge Podcast',
     language: 'en-US',
     namespaces: {
@@ -104,12 +113,29 @@ const feed = new Podcast({
 //   title: 'Episode 1',
 //   description: 'First episode',
 //   url: 'https://example.com/ep1.mp3',
-//   guid: '1',
+//   guid: 'https://theridgepodcast.com/?post_type=podcast&p=311',
 //   date: new Date()
 // });
+
 
 const xml = feed.buildXml();
 
 fs.writeFile("output.xml", xml, (err) => {
 
 });
+
+
+
+
+const filePath = path.join(episodesPath, `72-farewell.mdx`);
+const source = fs.readFileSync(filePath, 'utf8');
+
+
+const { content, data } = matter(source);
+
+const mdxSource = await serialize(content);
+
+
+
+console.log(mdxSource);
+console.log(data);
