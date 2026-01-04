@@ -186,4 +186,10 @@ for (const episode of episodes) {
 }
 
 const xml = feed.buildXml();
-fs.writeFileSync("public/output.xml", xml);
+
+const feedDir = path.join(process.cwd(), 'public', 'feed');
+fs.mkdirSync(feedDir, { recursive: true });
+
+fs.writeFileSync(path.join(feedDir, 'podcast'), xml);
+// fs.writeFileSync("public/feed/podcast", xml);
+// fs.writeFileSync("public/output.xml", xml);
