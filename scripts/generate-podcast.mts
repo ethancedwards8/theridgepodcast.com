@@ -8,6 +8,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
 import striptags from 'striptags';
+import { parseBuffer } from 'music-metadata';
 
 import { PodcastTrailer } from '../components/podcasttrailer';
 
@@ -28,6 +29,30 @@ async function mdxToHtml(mdxContent) {
 async function mdxToPlainText(mdxContent) {
     const html = await mdxToHtml(mdxContent);
     return striptags(html).trim();
+}
+
+// TODO: parallelize this!
+async function getMP3MetadataFast(url: string) {
+  const headResponse = await fetch(url, { method: 'HEAD' });
+  const size = headResponse.headers.get('content-length');
+  console.log(size);
+  
+  // Download only first 256KB for metadata parsing
+  const response = await fetch(url, {
+    headers: {
+      'Range': 'bytes=0-262143'
+    }
+  });
+  
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  
+  const metadata = await parseBuffer(buffer);
+  
+  return {
+    duration: metadata.format.duration,
+    size: size,
+  };
 }
 
 
@@ -121,7 +146,7 @@ const feed = new Podcast({
             "googleplay:description": desc,
         },
         {
-            "googleplay:explicit": "no",
+            "googleplay:explicit": "No",
         },
         {
             "googleplay:image": {
@@ -152,34 +177,35 @@ for (const file of files) {
     const slug = file.replace('.mdx', '');
     const audioUrl = `https://media.theridgepodcast.com/${slug}.mp3`;
 
+    const audioInfo = await getMP3MetadataFast(audioUrl);
+
     episodes.push({
         title: data.title,
         description: htmlDescription,
         itunesAuthor: author,
         itunesExplicit: false,
-        itunesSummary: {
-            _cdata: plainTextSummary
-        },
+        // itunesSummary: {
+        //     _cdata: plainTextSummary
+        // },
+        itunesImage: logo,
         content: htmlDescription,
         url: `https://theridgepodcast.com/podcast/${slug}`,
         guid: data.guid,
+        // TODO: make this +0000 instead of GMT
         date: new Date(data.date),
-        // TODO: calculate 
-        // itunesDuration: in hour minute second
-        // itunesSummary 254 chars
+        itunesDuration: audioInfo.duration,
+        itunesSubtitle: plainTextSummary.substring(0, 254),
         enclosure: {
             url: audioUrl,
-            // TODO: calculate 
-            // in bytes lol
-            size: 0,
+            size: audioInfo.size,
             type: 'audio/mpeg'
         },
         customElements: [
-            {
-                "googleplay:description": {
-                    _cdata: plainTextSummary
-                },
-            },
+            // {
+            //     "googleplay:description": {
+            //         _cdata: plainTextSummary
+            //     },
+            // },
             {
                 "googleplay:explicit": "no"
             },
