@@ -4,6 +4,7 @@ import { getAllPostsNoContent } from '../lib/episodes';
 import EpisodeCard from '../components/episodecard';
 import { AudioPlayer } from 'react-audio-play';
 import { generateNextSeo } from "next-seo/pages";
+import { getSpeaker } from '../lib/guests';
 
 import styles from '../styles/index.module.scss';
 

@@ -23,6 +23,7 @@
           name = "dev shell";
           buildInputs = [
               git
+              rclone
               mdcat
               nodejs
               pythonEnvironment

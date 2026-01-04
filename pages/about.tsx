@@ -70,25 +70,24 @@ export default function About() {
                 </div>
 
                 <p>
-                    Ethan is the owner, host, editor, webmaster, and manager of
-                    The Ridge Podcast. He is 2025 graduate of Carroll County
-                    High School and Wytheville Communtiy College. Currently, he
-                    is a first-year at Harvard and can be contacted at
-                    <a href="mailto:ethan@ethancedwards.com"> ethan@ethancedwards.com</a>.
+                    Ethan is the owner, founder, host, editor, webmaster, and
+                    manager of The Ridge Podcast. He is 2025 graduate of
+                    Carroll County High School and Wytheville Communtiy
+                    College. Currently, he is studying Computer Science and Math
+                    at Harvard. He can be contacted at <a href="mailto:ethan@ethancedwards.com"> ethan@ethancedwards.com</a>.
                 </p>
             </div>
             <div className={`${styles.luke} ${styles.host}`}>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit quisque
-                    faucibus ex sapien vitae pellentesque sem placerat in id cursus
-                    mi pretium tellus duis convallis tempus leo eu aenean sed diam
-                    urna tempor pulvinar vivamus fringilla lacus nec metus bibendum
-                    egestas.
+                    Luke was a co-founder and co-host of The Ridge Podcast and is
+                    currently finishing his bachelor's degree at Virginia Tech.
+                    He hopes to embark on a future career in the public sector.
+                    He can be contacted at <a href="mailto:jeffreyw06@vt.edu">jeffreyw06@vt.edu</a>.
                 </p>
 
                 <div>
-                    <h3>Jeffrey (Luke) Watson</h3>
-                    <img src="/jeffreylukewatson.jpeg" alt="Ethan" />
+                    <h3>Jeffrey Luke Watson</h3>
+                    <img src="/jeffreylukewatson.jpeg" alt="Luke" />
                 </div>
             </div>
         </div>
