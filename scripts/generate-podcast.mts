@@ -1,20 +1,21 @@
-import { Podcast } from 'podcast';
-
-import { v5 as uuid } from 'uuid';
-
 import fs from 'fs';
 import path from 'path';
+
+import { Podcast } from 'podcast';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
-import { PodcastTrailer } from './components/podcasttrailer';
+import striptags from 'striptags';
+
+import { PodcastTrailer } from '../components/podcasttrailer';
 
 const components = { PodcastTrailer };
 
 const episodesPath = path.join(process.cwd(), 'episodes');
 
+// for item desc/summary that requires html
 async function mdxToHtml(mdxContent) {
     const source = await serialize(mdxContent);
     return renderToStaticMarkup(
@@ -22,11 +23,20 @@ async function mdxToHtml(mdxContent) {
     );
 }
 
+// for item desc/summary that requires plain text
+async function mdxToPlainText(mdxContent) {
+    const html = await mdxToHtml(mdxContent);
+    return striptags(html).trim();
+}
+
+
+// TODO: split these into a new file
 const desc = "Interviews from the Blue Ridge/Appalachian area.";
 const email = "theridgepodcast@gmail.com";
 const author = "The Ridge Podcast";
 const logo = "https://theridgepodcast.com/TheRidgePodcastLogoECEJLW3000x3000.png";
 const site = 'https://theridgepodcast.com';
+
 
 const feed = new Podcast({
     title: author,
@@ -34,6 +44,7 @@ const feed = new Podcast({
     feedUrl: 'https://theridgepodcast.com/feed/podcast/',
     siteUrl: site,
     // author: author,
+    // TODO: fix 2026 to some function ;)
     copyright: '© 2023-2026 The Ridge Podcast',
     language: 'en-US',
     namespaces: {
@@ -121,49 +132,58 @@ const feed = new Podcast({
     ],
 });
 
-// feed.addItem({
-//   title: 'Episode 1',
-//   description: 'First episode',
-//   url: 'https://example.com/ep1.mp3',
-//   guid: 'https://theridgepodcast.com/?post_type=podcast&p=311',
-//   date: new Date()
-// });
-
-
-// const xml = feed.buildXml();
-
-// fs.writeFile("output.xml", xml, (err) => {
-
-// });
-
-
-
-
 const files = fs.readdirSync(episodesPath);
+
+
+const episodes = [];
+
 for (const file of files) {
     if (!file.endsWith('.mdx')) continue;
-    
+
+
     const filePath = path.join(episodesPath, file);
     const source = fs.readFileSync(filePath, 'utf8');
     const { content, data } = matter(source);
-    
-    // Convert MDX to HTML
+
     const htmlDescription = await mdxToHtml(content);
-    
-    feed.addItem({
+    const plainTextSummary = await mdxToPlainText(content);
+
+    const slug = file.replace('.mdx', '');
+    const audioUrl = `https://media.theridgepodcast.com/${slug}.mp3`;
+
+    episodes.push({
         title: data.title,
         description: htmlDescription,
-        url: `https://media.theridgepodcast.com/${data.slug || file.replace('.mdx', '')}.mp3`,
+        itunesSummary: {
+            _cdata: plainTextSummary
+        },
+        content: htmlDescription,
+        url: audioUrl,
         guid: data.guid,
         date: new Date(data.date),
-        // ... other fields
+        // TODO: calculate 
+        // itunesDuration:
+        enclosure: {
+            url: audioUrl,
+            // TODO: calculate 
+            size: 0,
+            type: 'audio/mpeg'
+        },
+        customElements: [
+            {
+                "googleplay:description": {
+                    _cdata: plainTextSummary
+                },
+            }
+        ]
     });
 }
 
+episodes.sort((a, b) => b.date - a.date);
+
+for (const episode of episodes) {
+    feed.addItem(episode);
+}
+
 const xml = feed.buildXml();
-fs.writeFileSync("output.xml", xml);
-
-
-
-console.log(mdxSource);
-console.log(data);
+fs.writeFileSync("public/output.xml", xml);
