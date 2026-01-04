@@ -23,6 +23,7 @@ async function mdxToHtml(mdxContent) {
     );
 }
 
+// TODO: figure out how to not strip newlines
 // for item desc/summary that requires plain text
 async function mdxToPlainText(mdxContent) {
     const html = await mdxToHtml(mdxContent);
@@ -154,18 +155,22 @@ for (const file of files) {
     episodes.push({
         title: data.title,
         description: htmlDescription,
+        itunesAuthor: author,
+        itunesExplicit: false,
         itunesSummary: {
             _cdata: plainTextSummary
         },
         content: htmlDescription,
-        url: audioUrl,
+        url: `https://theridgepodcast.com/podcast/${slug}`,
         guid: data.guid,
         date: new Date(data.date),
         // TODO: calculate 
-        // itunesDuration:
+        // itunesDuration: in hour minute second
+        // itunesSummary 254 chars
         enclosure: {
             url: audioUrl,
             // TODO: calculate 
+            // in bytes lol
             size: 0,
             type: 'audio/mpeg'
         },
@@ -174,7 +179,21 @@ for (const file of files) {
                 "googleplay:description": {
                     _cdata: plainTextSummary
                 },
-            }
+            },
+            {
+                "googleplay:explicit": "no"
+            },
+            {
+	            "googleplay:block": "no"
+            },
+            {
+                "dc:creator": {
+                    _cdata: author,
+                }
+            },
+            {
+                "itunes:block": "no"
+            },
         ]
     });
 }
@@ -191,5 +210,4 @@ const feedDir = path.join(process.cwd(), 'public', 'feed');
 fs.mkdirSync(feedDir, { recursive: true });
 
 fs.writeFileSync(path.join(feedDir, 'podcast'), xml);
-// fs.writeFileSync("public/feed/podcast", xml);
-// fs.writeFileSync("public/output.xml", xml);
+fs.writeFileSync("public/output.xml", xml);
