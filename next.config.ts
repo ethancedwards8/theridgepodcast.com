@@ -14,7 +14,6 @@ const nextConfig: NextConfig = {
         source: '/feed/podcast/the-ridge-podcast',
         destination: '/feed/podcast/',
         permanent: true,
-        statusCode: 301
       }
     ];
   },
