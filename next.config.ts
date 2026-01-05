@@ -17,6 +17,19 @@ const nextConfig: NextConfig = {
       }
     ];
   },
+  async headers() {
+    return [
+      {
+        source: '/feed/:path*',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/xml'
+          }
+        ]
+      }
+    ];
+  }
 };
 
 export default nextConfig;
