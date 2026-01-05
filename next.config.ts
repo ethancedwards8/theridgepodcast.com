@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         source: '/feed/podcast/the-ridge-podcast',
         destination: '/feed/podcast/',
         permanent: true,
+      },
+      {
+          source: '/episode/the-ridge-podcast',
+          destination: '/podcast',
+          permanent: true,
       }
     ];
   },

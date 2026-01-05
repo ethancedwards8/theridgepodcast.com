@@ -8,8 +8,9 @@ export default function Footer() {
                 <p className={styles.trp}>The Ridge Podcast</p>
                 <br />
                 <p>Interviews from the Blue Ridge/Appalachian area.</p>
+                <br />
+                <p>© 2023–2026 Ethan Carter Edwards, LLC</p>
             </div>
         </footer>
     );
-                // <prop>Property of Ethan Carter Edwards, LLC</prop>
 }
