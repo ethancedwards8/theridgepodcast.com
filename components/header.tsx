@@ -4,7 +4,7 @@ import styles from '../styles/header.module.scss';
 export default function Header() {
     return (
         <nav className={styles.nav}>
-            <Link href="/"><img src="/ethanandluke/favicon.svg" alt="The Ridge Podcast Logo" /></Link>
+            <Link href="/"><img src="https://media.theridgepodcast.com/TheRidgePodcastLogoECEJLW3000x3000.png" alt="The Ridge Podcast Logo" /></Link>
             <div>
                 <Link href="/"><h2>The Ridge Podcast</h2></Link>
                 <ul>
