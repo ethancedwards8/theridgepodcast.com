@@ -17,9 +17,9 @@ import styles from '../../styles/podcast.module.scss';
 const CLOUDFLARE_URL = "https://media.theridgepodcast.com/";
 
 export default function slug({ episode }) {
-    let frontMatter = episode.frontMatter;
-    let source = episode.source;
-    let slug = episode.slug;
+    const frontMatter = episode.frontMatter;
+    const source = episode.source;
+    const slug = episode.slug;
 
     return (
         <>
@@ -57,7 +57,7 @@ export async function getStaticProps({ params: { slug } }) {
     const frontMatter = post.frontMatter;
     const source = await serialize(post.content);
 
-    let episode = {
+    const episode = {
         frontMatter,
         source,
         slug,

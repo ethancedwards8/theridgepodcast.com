@@ -29,7 +29,17 @@ const nextConfig: NextConfig = {
         ]
       }
     ];
-  }
+  },
+  // TODO: figure out how to take advantage of this
+  // for stats
+  async rewrites() {
+    return [
+      {
+        source: '/podcast-download/:id/:slug',
+        destination: 'https://media.theridgepodcast.com/:slug',
+      }
+    ];
+  },
 };
 
 export default nextConfig;
