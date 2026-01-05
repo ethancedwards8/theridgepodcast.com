@@ -60,7 +60,7 @@ async function getMP3MetadataFast(url: string) {
 const desc = "Interviews from the Blue Ridge/Appalachian area.";
 const email = "theridgepodcast@gmail.com";
 const author = "The Ridge Podcast";
-const logo = "https://theridgepodcast.com/TheRidgePodcastLogoECEJLW3000x3000.png";
+const logo = "https://media.theridgepodcast.com/TheRidgePodcastLogoECEJLW3000x3000.png";
 const site = 'https://theridgepodcast.com';
 
 
