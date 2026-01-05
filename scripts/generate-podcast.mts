@@ -106,7 +106,7 @@ const feed = new Podcast({
             text: "History",
         },
         {
-            text: "Society & Culture",
+            text: "Society &amp; Culture",
             subcats: [
                 {
                     text: "Documentary",
