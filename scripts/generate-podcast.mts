@@ -57,11 +57,19 @@ async function getMP3MetadataFast(url: string) {
 
 
 // TODO: split these into a new file
-const desc = "Interviews from the Blue Ridge/Appalachian area.";
+const ethan = "Ethan Carter Edwards";
+const ethansite = "https://ethancedwards.com";
+const ethanimage = "https://media.theridgepodcast.com/EthanSuitSteps.jpg";
+const luke = "Jeffrey Luke Watson";
+const lukeimage = "https://media.theridgepodcast.com/jeffreylukewatson.jpeg";
+
+const podcastkeywords = "Local History, Politics, Appalachia, Blue Ridge, South, Rural, Country, Faith, Culture, Music, America, Education, Interviews";
+const tagline = "Interviews from the Blue Ridge/Appalachian area.";
 const email = "theridgepodcast@gmail.com";
 const author = "The Ridge Podcast";
 const logo = "https://media.theridgepodcast.com/TheRidgePodcastLogoECEJLW3000x3000.png";
 const site = 'https://theridgepodcast.com';
+const desc = "The Ridge Podcast is a show that focuses on interviewing every day people in the Blue Ridge and greater Appalachian area discussing local history, politics, stories, and other oral history topics. Ethan is a student at Harvard and Luke is a student at Virginia Tech. Both are graduates of Carroll County High School in Hillsville, Virginia.";
 
 
 const feed = new Podcast({
@@ -72,7 +80,7 @@ const feed = new Podcast({
     // author: author,
     // TODO: fix 2026 to some function ;)
     copyright: '© 2023-2026 The Ridge Podcast',
-    language: 'en-US',
+    language: 'en',
     namespaces: {
         simpleChapters: false,
     },
@@ -81,14 +89,15 @@ const feed = new Podcast({
         slash: "http://purl.org/rss/1.0/modules/slash/",
 	    sy: "http://purl.org/rss/1.0/modules/syndication/",
         wfw: "http://wellformedweb.org/CommentAPI/",
-        rawvoice: "https://blubrry.com/developer/rawvoice-rss/",
+        // rawvoice: "https://blubrry.com/developer/rawvoice-rss/",
     },
-    itunesSubtitle: desc,
+    itunesSubtitle: tagline,
     itunesAuthor: author,
     itunesType: "episodic",
+    itunesExplicit: false,
     itunesSummary: desc,
     itunesOwner: {
-      name: author,
+      name: ethan,
       email: email,
     },
     itunesImage: logo,
@@ -108,17 +117,6 @@ const feed = new Podcast({
             text: "Government",
         }
     ],
-    
-    // 	TODO: figure out if i need/want/care
-    // 	<rawvoice:subscribe feed="https://lexfridman.com/feed/podcast/" itunes="https://podcasts.apple.com/us/podcast/lex-fridman-podcast/id1434243584" blubrry="https://www.blubrry.com/artificialintelligence/ " tunein="https://tunein.com/podcasts/Technology-Podcasts/Artificial-Intelligence-p1153019/" spotify="https://open.spotify.com/show/2MAi0BvDc6GTFvKFPXnkCL"></rawvoice:subscribe>
-        // {
-        //     'rawvoice:subscribe': {
-        //         _attr: {
-        //             feed: 'https://theridgepodcast.com/feed/podcast/the-ridge-podcast/',
-        //             spotify: 'https://open.spotify.com/show/...',
-        //         },
-        //     },
-        // },
     customElements: [
         {
             image: [
@@ -128,6 +126,9 @@ const feed = new Podcast({
             ]
         },
         {
+            "itunes:keywords": podcastkeywords,
+        },
+        {
             "podcast:guid": "be71c3da-65b5-5ede-b088-87b305dec394",
         },
         {
@@ -135,6 +136,25 @@ const feed = new Podcast({
                 { _attr: { owner: email } },
                 'yes',
             ],
+        },
+        {
+            "podcast:person": [
+                { _attr: {
+                    role: "Host",
+                    href: ethansite,
+                    img: ethanimage
+                }},
+                ethan
+            ]
+        },
+        {
+            "podcast:person": [
+                { _attr: {
+                    role: "Host",
+                    img: lukeimage
+                }},
+                luke
+            ]
         },
         {
             "googleplay:author": author,
@@ -218,7 +238,17 @@ for (const file of files) {
                 }
             },
             {
-                "itunes:block": "no"
+                "itunes:keywords": data.categories.join(', '),
+            },
+            {
+                "podcast:person": [
+                    { _attr: {
+                        role: "Host",
+                        href: ethansite,
+                        img: ethanimage
+                    }},
+                    ethan
+                ]
             },
         ]
     });
