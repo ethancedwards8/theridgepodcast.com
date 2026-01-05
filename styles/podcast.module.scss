@@ -24,6 +24,16 @@
 }
 
 @media (width <= 800px) {
+.episode {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p, strong {
+    font-size: 1.2em;
+  }
+}
+
 .dateaudio {
   grid-auto-rows: repeat(2, 1fr);
 

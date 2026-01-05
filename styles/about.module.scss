@@ -10,13 +10,6 @@
   }
 }
 
-// .grid {
-//   display: grid;
-//   grid-template-columns: repeat(2, 1fr);
-//   grid-template-rows: repeat(2, 1fr);
-//   gap: 8px;
-// }
-
 .host {
   display: flex;
 
@@ -38,6 +31,10 @@
 
 
 @media (width <= 1000px) {
+  .about {
+    font-size: 1.3em;
+  }
+
   .host {
     flex-direction: column;
 
