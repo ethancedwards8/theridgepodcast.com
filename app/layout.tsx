@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: "The Ridge Podcast",
   },
   description: description,
-  alernates: { canonical: url },
+  alternates: { canonical: url },
   authors: [{ name: 'Ethan Carter Edwards' } ],
   creator: 'Ethan Carter Edwards',
   publisher: 'Ethan Carter Edwards',

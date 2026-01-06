@@ -2,9 +2,10 @@ import Head from "next/head";
 import Link from 'next/link';
 import { getAllPostsNoContent } from '../lib/episodes';
 import EpisodeCard from '../components/episodecard';
-import { AudioPlayer } from 'react-audio-play';
+import MyAudioPlayer from '../components/AudioPlayer';
 import { generateNextSeo } from "next-seo/pages";
 import { getSpeaker } from '../lib/guests';
+import type { Metadata } from 'next'
 
 import styles from '../styles/index.module.scss';
 
@@ -19,7 +20,20 @@ function createBadge(name: string, link: string): Badge {
   return { name, link }
 }
 
-export default function Home({ recentPost, posts }) {
+export const metadata: Metadata = {
+    alternates: { canonical: "https://theridgepodcast.com/" },
+    description: "The Ridge Podcast Home",
+    openGraph: {
+        title: "The Ridge Podcast",
+        url: 'https://theridgepodcast.com/',
+    }
+}
+
+export default async function Home() {
+    const podcast = await getPodcast();
+    const posts = podcast.posts;
+    const recentPost = podcast.recentPost;
+
     const recent = recentPost.frontMatter.title;
 
     // courtesy of https://www.podpage.com/badges/
@@ -37,20 +51,10 @@ export default function Home({ recentPost, posts }) {
 
   return (
       <>
-        <Head>
-            {generateNextSeo({
-                canonical: "https://theridgepodcast.com/",
-                description: "The Ridge Podcast Home Page",
-                openGraph: {
-                    title: "The Ridge Podcast",
-                    url: 'https://theridgepodcast.com/',
-                }
-            })}
-        </Head>
         <h1>Welcome to The Ridge Podcast</h1>
         <h2>Check out our most recent episode!</h2>
         <Link href={'/podcast/' + recentPost.slug}><p style={{ fontSize: "1.5em" }}>{recentPost.frontMatter.title}</p></Link>
-        <AudioPlayer src={CLOUDFLARE_URL + recentPost.slug + '.mp3'} />
+        <MyAudioPlayer src={CLOUDFLARE_URL + recentPost.slug + '.mp3'} />
         <br/>
         <div className={styles.listenon}>
             {badges.map((badge, index) => (
@@ -72,14 +76,12 @@ export default function Home({ recentPost, posts }) {
   );
 }
 
-export async function getStaticProps() {
+async function getPodcast() {
     const posts = getAllPostsNoContent().slice(0, 10);
     const recentPost = posts[0];
 
     return {
-        props: {
-            recentPost,
-            posts
-        }
+        recentPost,
+        posts
     }
 }
