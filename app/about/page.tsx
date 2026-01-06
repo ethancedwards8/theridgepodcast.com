@@ -1,24 +1,22 @@
 import Link from "next/link";
 import Head from "next/head";
-import { generateNextSeo } from "next-seo/pages";
+import type { Metadata } from 'next'
 
-import styles from '../styles/about.module.scss';
+import styles from '../../styles/about.module.scss';
+
+export const metadata: Metadata = {
+    title: "About",
+    alternates: { canonical: "https://theridgepodcast.com/about" },
+    description: "About The Ridge Podcast",
+    openGraph: {
+        url: 'https://theridgepodcast.com/about',
+        title: "About",
+    }
+}
 
 export default function About() {
   return (
     <>
-    <Head>
-        {generateNextSeo({
-            title: "About",
-            canonical: "https://theridgepodcast.com/about",
-            description: "About The Ridge Podcast",
-            openGraph: {
-              url: 'https://theridgepodcast.com/about',
-              title: "About",
-            }
-        })}
-    </Head>
-
     <div className={styles.about}>
         <h1>About Us</h1>
         <p>
