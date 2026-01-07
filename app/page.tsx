@@ -1,9 +1,7 @@
-import Head from "next/head";
 import Link from 'next/link';
 import { getAllPostsNoContent } from '../lib/episodes';
 import EpisodeCard from '../components/episodecard';
 import MyAudioPlayer from '../components/AudioPlayer';
-import { generateNextSeo } from "next-seo/pages";
 import { getSpeaker } from '../lib/guests';
 import type { Metadata } from 'next'
 
