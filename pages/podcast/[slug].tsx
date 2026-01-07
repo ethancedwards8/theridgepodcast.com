@@ -1,4 +1,4 @@
-import { getAllPosts, getArticleFromSlug } from '../../lib/episodes';
+import { getArticleFromSlug } from '../../lib/episodes';
 import Head from 'next/head';
 import fs from 'fs';
 import { serialize } from 'next-mdx-remote/serialize';

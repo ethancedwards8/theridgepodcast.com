@@ -1,6 +1,3 @@
-import Link from 'next/link';
-import { generateNextSeo } from "next-seo/pages";
-
 import EpisodeCard from '../../components/episodecard';
 
 import { getAllPostsNoContent } from '../../lib/episodes';

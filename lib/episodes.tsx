@@ -18,7 +18,7 @@ export function getAllPostsNoContent() {
         const markdownWithMeta = fs.readFileSync(join('episodes', filename), 'utf-8');
         const ret = matter(markdownWithMeta);
 
-        let frontMatter = ret.data;
+        const frontMatter = ret.data;
 
         return {
             frontMatter,
@@ -34,8 +34,8 @@ export function getAllPosts() {
         const markdownWithMeta = fs.readFileSync(join('episodes', filename), 'utf-8');
         const ret = matter(markdownWithMeta);
 
-        let frontMatter = ret.data;
-        let content = ret.content;
+        const frontMatter = ret.data;
+        const content = ret.content;
 
         return {
             frontMatter,
