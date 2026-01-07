@@ -1,8 +1,12 @@
 consider rendering /podcast with youtube (for those that apply)?
 include categories!
 
+
+full typescript migration
+full app router migration
+
+categories
 /speaker/
-add some sort of speaker db?
 
 maybe have audio files available under /podcast-download/
 
@@ -16,5 +20,7 @@ that increments a number in a DB/text file/something somewhere so that I have so
 kind of statistics
 
 
-test out if passing the mdx result to the react component then rendering gets rid of the stupid hydration bundle
-bs...
+
+
+
+FEDIVERSE INTEGRATION!!!
