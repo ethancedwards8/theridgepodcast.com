@@ -8,6 +8,8 @@ full app router migration
 categories
 /speaker/
 
+increase ADA accessibility
+
 maybe have audio files available under /podcast-download/
 
 write a script to add an episode: take in GUID! title, speakers, audio file to upload to cloudflare, tags...

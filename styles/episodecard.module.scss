@@ -1,6 +1,20 @@
+.card {
+  h2 {
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+
+  p {
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    font-weight: bold;
+  }
+}
+
 @media (width <= 1000px) {
   .card {
-    h1 {
+    h2 {
       font-size: 1.5em;
     }
   }

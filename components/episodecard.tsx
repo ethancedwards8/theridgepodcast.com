@@ -8,11 +8,9 @@ export default function EpisodeCard({ post }) {
         <div className={styles.card}>
             <hr/>
             <Link href={'/podcast/' + post.slug} passHref>
-                <h1>{post.frontMatter.title}</h1>
+                <h2>{post.frontMatter.title}</h2>
             </Link>
-            <h4>{post.frontMatter.author}</h4>
-            <h4>{dayjs(post.frontMatter.date).format('MMMM D, YYYY')}</h4>
-            <p>{post.frontMatter.description}</p>
+            <p>{dayjs(post.frontMatter.date).format('MMMM D, YYYY')}</p>
         </div>
     )
 }

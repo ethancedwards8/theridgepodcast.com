@@ -58,7 +58,7 @@ export default async function Home() {
         <br/>
         <div className={styles.listenon}>
             {badges.map((badge, index) => (
-              <Link key={index} href={badge.link}><img src={badge.name} /></Link>
+              <Link key={index} href={badge.link}><img src={badge.name} alt={badge.name.replace(/\.[^/.]+$/, " podcast logo")} /></Link>
             ))}
         </div>
 
