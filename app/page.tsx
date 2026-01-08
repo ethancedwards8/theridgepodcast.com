@@ -45,6 +45,9 @@ export default async function Home() {
         createBadge("rss-badge.svg", "https://theridgepodcast.com/feed/podcast/"),
         createBadge("spotify-badge.svg", "https://open.spotify.com/show/2cKCltgfcCJjaipPQxKVGi"),
         createBadge("youtube_player-badge.svg", "https://www.youtube.com/@theridgepodcast"),
+        // TODO: find better graphics...
+        // createBadge("instagram-icon.svg", "https://instagram.com/theridgepodcastinsta"),
+        // createBadge("facebook-icon.svg", "https://www.facebook.com/theridgepodcast"),
     ];
 
   return (
