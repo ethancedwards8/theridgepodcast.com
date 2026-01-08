@@ -11,6 +11,7 @@ import { PodcastTrailer } from '../../components/podcasttrailer';
 const components = { PodcastTrailer };
 
 import { AudioPlayer } from 'react-audio-play';
+import YTPlayer from '@/components/youtubeplayer'
 
 import styles from '../../styles/podcast.module.scss';
 
@@ -34,6 +35,7 @@ export default function slug({ episode }) {
             })}
         </Head>
 
+
           <div className={styles.episode}>
                 <h1>{frontMatter.title}</h1>
                 <div className={styles.dateaudio}>
@@ -46,6 +48,7 @@ export default function slug({ episode }) {
                 <main>
                   <MDXRemote {...source} components={components} />
                 </main>
+                { frontMatter.youtube ? <YTPlayer id={frontMatter.youtube} /> : <></> }
           </div>
         </>
     );
