@@ -32,6 +32,15 @@ const nextConfig: NextConfig = {
             value: 'text/xml'
           }
         ]
+      },
+      {
+        source: '/podcast-download/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache'
+          }
+        ]
       }
     ];
   },
