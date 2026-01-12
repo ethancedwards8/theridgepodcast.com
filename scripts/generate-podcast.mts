@@ -196,6 +196,7 @@ for (const file of files) {
 
     const slug = file.replace('.mdx', '');
     const audioUrl = `https://media.theridgepodcast.com/${slug}.mp3`;
+    // const audioUrl = `https://theridgepodcast.com/podcast-download/${slug}.mp3`;
 
     const audioInfo = await getMP3MetadataFast(audioUrl);
 
