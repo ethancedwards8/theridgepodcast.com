@@ -11,10 +11,9 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
-  // TODO: put this behind authentication LOL
   return (
       <>
-        {data.map((obj, index) => (
+        {data.reverse().map((obj, index) => (
             <div key={index}>
                 <p>{obj.slug}: {obj.count}</p>
             </div>
