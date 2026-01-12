@@ -40,7 +40,7 @@ export default async function Home() {
         createBadge("overcast-badge.svg", "https://overcast.fm/itunes1675395041/the-ridge-podcast"),
         createBadge("pandora-badge.svg", "https://pandora.app.link/WS2Jiyig0xb"),
         // createBadge("pocketcasts-badge.svg", "https://pca.st/9wo986gb"),
-        createBadge("rss-badge.svg", "https://theridgepodcast.com/feed/podcast/"),
+        createBadge("rss-badge.svg", "/feed/podcast"),
         createBadge("spotify-badge.svg", "https://open.spotify.com/show/2cKCltgfcCJjaipPQxKVGi"),
         createBadge("youtube_player-badge.svg", "https://www.youtube.com/@theridgepodcast"),
         // TODO: find better graphics...

@@ -195,10 +195,10 @@ for (const file of files) {
     const plainTextSummary = await mdxToPlainText(content);
 
     const slug = file.replace('.mdx', '');
-    const audioUrl = `https://media.theridgepodcast.com/${slug}.mp3`;
-    // const audioUrl = `https://theridgepodcast.com/podcast-download/${slug}.mp3`;
+    const directAudioUrl = `https://media.theridgepodcast.com/${slug}.mp3`; // for metadata
+    const feedAudioUrl = `https://theridgepodcast.com/podcast-download/${slug}.mp3`;
 
-    const audioInfo = await getMP3MetadataFast(audioUrl);
+    const audioInfo = await getMP3MetadataFast(directAudioUrl);
 
     episodes.push({
         title: data.title,
@@ -217,7 +217,7 @@ for (const file of files) {
         itunesDuration: audioInfo.duration,
         itunesSubtitle: plainTextSummary.substring(0, 254),
         enclosure: {
-            url: audioUrl,
+            url: feedAudioUrl,
             size: audioInfo.size,
             type: 'audio/mpeg'
         },
