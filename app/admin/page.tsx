@@ -10,8 +10,8 @@ async function signIn(formData: FormData) {
     const supabase = await createClient();
 
     const { data, error } = await supabase.auth.signInWithPassword({
-        email: formData.get('email'),
-        password: formData.get('password')
+        email: formData.get('email') as string,
+        password: formData.get('password') as string
     });
 
     if (error) {
@@ -22,6 +22,14 @@ async function signIn(formData: FormData) {
 }
 
 export default async function Admin() {
+    const supabase = await createClient();
+
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (user) {
+        redirect('/admin/dashboard');
+    }
+
     return (
         <form action={signIn}>
             <input
