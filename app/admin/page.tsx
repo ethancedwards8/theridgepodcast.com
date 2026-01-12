@@ -5,6 +5,7 @@ import styles from '@/styles/admin.module.scss';
 import { redirect } from 'next/navigation';
 
 import { createClient } from '@/lib/supabase/server';
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: "Admin",
