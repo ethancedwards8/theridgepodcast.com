@@ -2,6 +2,8 @@
 
 import { AudioPlayer } from 'react-audio-play';
 
-export default function MyAudioPlayer({ src }) {
-    return <AudioPlayer src={src} />
+const URL = "https://media.theridgepodcast.com/"
+
+export default function MyAudioPlayer({ slug }) {
+    return <AudioPlayer src={URL + slug + '.mp3'} />
 }

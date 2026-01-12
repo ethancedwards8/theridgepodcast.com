@@ -7,8 +7,6 @@ import type { Metadata } from 'next'
 
 import styles from '../styles/index.module.scss';
 
-const CLOUDFLARE_URL = "https://media.theridgepodcast.com/";
-
 type Badge = {
     name: string;
     link: string;
@@ -55,7 +53,7 @@ export default async function Home() {
         <h1>Welcome to The Ridge Podcast</h1>
         <h2>Check out our most recent episode!</h2>
         <Link href={'/podcast/' + recentPost.slug}><p style={{ fontSize: "1.5em" }}>{recentPost.frontMatter.title}</p></Link>
-        <MyAudioPlayer src={CLOUDFLARE_URL + recentPost.slug + '.mp3'} />
+        <MyAudioPlayer slug={recentPost.slug} />
         <br/>
         <div className={styles.listenon}>
             {badges.map((badge, index) => (

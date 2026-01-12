@@ -11,8 +11,6 @@ import styles from '@/styles/podcast.module.scss';
 
 const components = { PodcastTrailer };
 
-const CLOUDFLARE_URL = "https://media.theridgepodcast.com/";
-
 export async function generateStaticParams() {
     const files = fs.readdirSync(path.join(process.cwd(), 'episodes'));
     
@@ -60,7 +58,7 @@ export default async function EpisodePage({ params }) {
             <div className={styles.dateaudio}>
                 <h3>{dayjs(frontMatter.date).format('MMMM D, YYYY')}</h3>
                 <div>
-                    <MyAudioPlayer src={CLOUDFLARE_URL + slug + '.mp3'} />
+                    <MyAudioPlayer slug={slug} />
                 </div>
             </div>
             <hr/>
