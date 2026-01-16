@@ -11,6 +11,7 @@ export default function Header() {
                     <li><Link href="/">Home</Link></li>
                     <li><Link href="/podcast">Episodes</Link></li>
                     <li><Link href="/about">About</Link></li>
+                    <li><Link href="/sftr">SFTR</Link></li>
                 </ul>
             </div>
         </nav>
