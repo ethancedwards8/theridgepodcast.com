@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 
 const desc = "Saving the stories we grew up hearing."
 
+import styles from '@/styles/sftr.module.scss';
+
 export const metadata: Metadata = {
     title: "Stories From The Ridge",
     alternates: { canonical: "https://theridgepodcast.com/sftr" },
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function SFTR() {
     return (
-        <>
+        <div className={styles.about}>
             <h1>Stories From The Ridge: Saving the stories we grew up hearing.</h1>
             <p>
             For generations, stories have been passed from person to person orally.
@@ -55,6 +57,6 @@ export default function SFTR() {
                 <li>If there are multiple recordings organized by topic, please include the topic</li>
                 <li>Topics like farming, family, faith, war, agriculture, church, military, veteran, etc.</li>
             </ul>
-        </>
+        </div>
     );
 }
