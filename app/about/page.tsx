@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from 'next'
 
-import styles from '../../styles/about.module.scss';
+import styles from '@/styles/about.module.scss';
 
 export const metadata: Metadata = {
     title: "About",
@@ -88,6 +88,8 @@ export default function About() {
                 </div>
             </div>
         </div>
+        <h2>Licensing</h2>
+        <p>Unless otherwise noted, all recordings are published under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 (CC-BY 4.0) license</a>.</p>
     </div>
     </>
   );

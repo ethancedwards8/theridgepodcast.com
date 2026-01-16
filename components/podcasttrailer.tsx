@@ -20,6 +20,8 @@ function PodcastTrailer() {
 <p>Spotify: <a href="https://open.spotify.com/show/2cKCltgfcCJjaipPQxKVGi">https://open.spotify.com/show/2cKCltgfcCJjaipPQxKVGi</a></p>
 
 <p>Apple Podcasts: <a href="https://podcasts.apple.com/us/podcast/the-ridge-podcast/id1675395041">https://podcasts.apple.com/us/podcast/the-ridge-podcast/id1675395041</a></p>
+
+<p>Unless otherwise noted, all recordings are published under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 (CC-BY 4.0) license</a>.</p>
         </>
     );
 }
