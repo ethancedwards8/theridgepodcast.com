@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     title: "The Ridge Podcast",
   },
   manifest: "/ethanandluke/site.webmanifest",
+  other: {
+      "google-adsense-account": "ca-pub-5292714556730341",
+  },
 }
 
 export default function RootLayout({
