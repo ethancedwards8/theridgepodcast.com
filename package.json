@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "start": "astro preview --port 3000",
+    "start": "astro preview --port 3000 --host",
     "preview": "astro preview",
     "astro": "astro",
     "prebuild": "tsx scripts/generate-podcast.mts"
