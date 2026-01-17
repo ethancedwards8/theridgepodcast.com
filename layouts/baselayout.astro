@@ -12,52 +12,6 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-//const description = "Interviews from the Blue Ridge/Appalachian area.";
-//const url = "https://theridgepodcast.com";
-//
-//export const metadata = {
-//  title: {
-//    template: "%s | The Ridge Podcast",
-//    default: "The Ridge Podcast",
-//  },
-//  description: description,
-//  alternates: { canonical: url },
-//  authors: [{ name: 'Ethan Carter Edwards' } ],
-//  creator: 'Ethan Carter Edwards',
-//  publisher: 'Ethan Carter Edwards',
-//  openGraph: {
-//    title: {
-//      template: "%s | The Ridge Podcast",
-//      default: "The Ridge Podcast",
-//    },
-//    type: "website",
-//    locale: "en_US",
-//    url,
-//    siteName: "The Ridge Podcast",
-//    description,
-//  },
-//  twitter: {
-//    creator: "@theridgepodcast",
-//    card: "summary_large_image",
-//    description,
-//  },
-//  icons: {
-//    icon: [
-//      { url: "/ethanandluke/favicon.svg", type: "image/svg+xml" },
-//      { url: "/ethanandluke/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-//    ],
-//    shortcut: "/ethanandluke/favicon.ico",
-//    apple: "/ethanandluke/apple-touch-icon.png",
-//  },
-//  appleWebApp: {
-//    title: "The Ridge Podcast",
-//  },
-//  manifest: "/ethanandluke/site.webmanifest",
-//  other: {
-//      "google-adsense-account": "ca-pub-5292714556730341",
-//  },
-//}
-
 function makeTitle(title: string): string {
     if (!title) {
         return "The Ridge Podcast";
@@ -71,9 +25,41 @@ function makeTitle(title: string): string {
 <html lang="en">
     <head>
         <SEO
-            title={makeTitle(title)}
+            titleTemplate="%s | The Ridge Podcast"
+            titleDefault="The Ridge Podcast"
+            title={title}
             description={description}
+            openGraph={{
+                basic: {
+                    title: makeTitle(title),
+                    type: "website",
+                    image: "https://media.theridgepodcast.com/favicon.svg",
+                },
+                optional: {
+                    siteName: "The Ridge Podcast",
+                    description
+                }
+            }}
+            twitter={{
+                title: makeTitle(title),
+                creator: "@theridgepodcast",
+                card: "summary_large_image",
+                description,
+            }}
         />
+
+        <link rel="manifest" href="/ethanandluke/site.webmanifest">
+        <meta name="creator" content="Ethan Carter Edwards">
+        <meta name="publisher" content="Ethan Carter Edwards">
+        <meta name="author" content="Ethan Carter Edwards">
+        <meta name="google-adsense-account" content="ca-pub-5292714556730341">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="The Ridge Podcast">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <link rel="shortcut icon" href="/ethanandluke/favicon.ico">
+        <link rel="icon" href="/ethanandluke/favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="/ethanandluke/favicon-96x96.png" sizes="96x96" type="image/png">
+        <link rel="apple-touch-icon" href="/ethanandluke/apple-touch-icon.png">
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
