@@ -10,7 +10,7 @@ import React from 'react';
 import striptags from 'striptags';
 import { parseBuffer } from 'music-metadata';
 
-import { PodcastTrailer } from '../components/podcasttrailer';
+import PodcastTrailer from '../components/podcasttrailer';
 
 const components = { PodcastTrailer };
 
@@ -18,10 +18,16 @@ const episodesPath = path.join(process.cwd(), 'episodes');
 
 // for item desc/summary that requires html
 async function mdxToHtml(mdxContent) {
-    const source = await serialize(mdxContent);
-    return renderToStaticMarkup(
-        React.createElement(MDXRemote, { ...source, components })
-    );
+  const source = await serialize(mdxContent);
+
+  return renderToStaticMarkup(
+  React.createElement(
+    React.Fragment,
+    null,
+    React.createElement(MDXRemote, { ...source, components }),
+    React.createElement(PodcastTrailer),
+  )
+);
 }
 
 // TODO: figure out how to not strip newlines

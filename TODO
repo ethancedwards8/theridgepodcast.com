@@ -1,28 +1,19 @@
-consider rendering /podcast with youtube (for those that apply)?
 include categories!
 
 
-full typescript migration
-full app router migration
+?? hmmfull typescript migration
 
 categories
 /speaker/
 
-increase ADA accessibility
 
-maybe have audio files available under /podcast-download/
+??? hmmm?? hmmmaybe have audio files available under /podcast-download/
 
 write a script to add an episode: take in GUID! title, speakers, audio file to upload to cloudflare, tags...
 
-figure out scheduling. maybe just an at command with docker refresh? not sure...!
-
-stats:
-have middleware at /podcast-download/ that calls a general purpose incrementer API
-that increments a number in a DB/text file/something somewhere so that I have some
-kind of statistics
+figure out scheduling... maybe just an at command with docker refresh? not sure...!
+wake up earlier???
 
 
 
-
-
-FEDIVERSE INTEGRATION!!!
+hmmm.... FEDIVERSE INTEGRATION!!!

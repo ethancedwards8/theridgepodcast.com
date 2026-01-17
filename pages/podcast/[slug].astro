@@ -1,0 +1,53 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MyAudioPlayer from "@/components/AudioPlayer.jsx";
+import YTPlayer from "@/components/youtubeplayer.tsx";
+import styles from "@/styles/podcast.module.scss";
+import dayjs from "dayjs";
+import PodcastTrailer from "@/components/podcasttrailer.tsx";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../episodes/*.mdx");
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.file.split("/").pop().replace(".mdx", ""),
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const Content = post.default;
+const { frontmatter } = post;
+
+const { slug } = Astro.params;
+---
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description ?? frontmatter.title}
+>
+  <div class={styles.episode}>
+    <h1>{frontmatter.title}</h1>
+
+    <div class={styles.dateaudio}>
+      <h3>{dayjs(frontmatter.date).format("MMMM D, YYYY")}</h3>
+
+      <MyAudioPlayer client:load slug={slug} />
+    </div>
+
+    <hr />
+
+    <main>
+      <Content />
+
+      <PodcastTrailer />
+    </main>
+
+    {frontmatter.youtube && (
+      <YTPlayer client:load id={frontmatter.youtube} />
+    )}
+  </div>
+</BaseLayout>
+

@@ -12,4 +12,8 @@ export default defineConfig({
     integrations: [mdx(), sitemap(), react()],
     prefetch: true,
     srcDir: './',
+    redirects: {
+        "/about-us": "about",
+        "/episode/the-ridge-podcast": "/podcast"
+    },
 });
