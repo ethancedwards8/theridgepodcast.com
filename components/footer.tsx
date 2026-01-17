@@ -8,7 +8,7 @@ export default function Footer() {
                 <br />
                 <p>Interviews from the Blue Ridge/Appalachian area.</p>
                 <br />
-                <p>© 2023–2026 Ethan Carter Edwards, LLC</p>
+                <p>© 2023-2026 Ethan Carter Edwards, LLC</p>
             </div>
         </footer>
     );

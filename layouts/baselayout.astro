@@ -1,0 +1,95 @@
+---
+import '../styles/global.scss';
+import Header from '../components/header.tsx';
+import Footer from '../components/footer.tsx';
+
+import { SEO } from "astro-seo";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+//const description = "Interviews from the Blue Ridge/Appalachian area.";
+//const url = "https://theridgepodcast.com";
+//
+//export const metadata = {
+//  title: {
+//    template: "%s | The Ridge Podcast",
+//    default: "The Ridge Podcast",
+//  },
+//  description: description,
+//  alternates: { canonical: url },
+//  authors: [{ name: 'Ethan Carter Edwards' } ],
+//  creator: 'Ethan Carter Edwards',
+//  publisher: 'Ethan Carter Edwards',
+//  openGraph: {
+//    title: {
+//      template: "%s | The Ridge Podcast",
+//      default: "The Ridge Podcast",
+//    },
+//    type: "website",
+//    locale: "en_US",
+//    url,
+//    siteName: "The Ridge Podcast",
+//    description,
+//  },
+//  twitter: {
+//    creator: "@theridgepodcast",
+//    card: "summary_large_image",
+//    description,
+//  },
+//  icons: {
+//    icon: [
+//      { url: "/ethanandluke/favicon.svg", type: "image/svg+xml" },
+//      { url: "/ethanandluke/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+//    ],
+//    shortcut: "/ethanandluke/favicon.ico",
+//    apple: "/ethanandluke/apple-touch-icon.png",
+//  },
+//  appleWebApp: {
+//    title: "The Ridge Podcast",
+//  },
+//  manifest: "/ethanandluke/site.webmanifest",
+//  other: {
+//      "google-adsense-account": "ca-pub-5292714556730341",
+//  },
+//}
+
+function makeTitle(title: string): string {
+    if (!title) {
+        return "The Ridge Podcast";
+    } else {
+        return `${title} | The Ridge Podcast`;
+    }
+}
+
+---
+
+<html lang="en">
+    <head>
+        <SEO
+            title={makeTitle(title)}
+            description={description}
+        />
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <body>
+
+    <div>
+        <Header />
+
+        <div class="body">
+            <slot />
+        </div>
+
+        <Footer />
+    </div>
+
+    </body>
+</html>

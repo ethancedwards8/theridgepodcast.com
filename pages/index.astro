@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/baselayout.astro';
+import { getAllPostsNoContent } from '@/lib/episodes';
+import EpisodeCard from '@/components/episodecard';
+import MyAudioPlayer from '@/components/AudioPlayer';
+//import { getSpeaker } from '../lib/guests';
+
+import styles from '@/styles/index.module.scss';
+
+type Badge = {
+    name: string;
+    link: string;
+}
+
+function createBadge(name: string, link: string): Badge {
+  return { name, link }
+}
+const posts = getAllPostsNoContent().slice(0, 10);
+const recentPost = posts[0];
+
+// courtesy of https://www.podpage.com/badges/
+const badges: Badge[] = [
+    // createBadge("amazonmusic-badge.svg", "https://music.amazon.com/podcasts/c905ebb7-055e-4317-b9ae-8874b4744f3c/the-ridge-podcast"),
+    createBadge("audible-badge.svg", "https://www.audible.com/pd/The-Ridge-Podcast-Podcast/B0BXB1KY2L"),
+    createBadge("applepodcasts-badge.svg", "https://podcasts.apple.com/us/podcast/the-ridge-podcast/id1675395041"),
+    createBadge("overcast-badge.svg", "https://overcast.fm/itunes1675395041/the-ridge-podcast"),
+    createBadge("pandora-badge.svg", "https://pandora.app.a/WS2Jiyig0xb"),
+    // createBadge("pocketcasts-badge.svg", "https://pca.st/9wo986gb"),
+    createBadge("rss-badge.svg", "/feed/podcast"),
+    createBadge("spotify-badge.svg", "https://open.spotify.com/show/2cKCltgfcCJjaipPQxKVGi"),
+    createBadge("youtube_player-badge.svg", "https://www.youtube.com/@theridgepodcast"),
+    // TODO: find better graphics...
+    // createBadge("instagram-icon.svg", "https://instagram.com/theridgepodcastinsta"),
+    // createBadge("facebook-icon.svg", "https://www.facebook.com/theridgepodcast"),
+];
+---
+
+
+<BaseLayout description="The Ridge Podcast Home">
+
+<h1>Welcome to The Ridge Podcast</h1>
+<h2>Check out our most recent episode!</h2>
+<a href={'/podcast/' + recentPost.slug}><p style={{ fontSize: "1.5em" }}>{recentPost.frontMatter.title}</p></a>
+<MyAudioPlayer slug={recentPost.slug} client:idle />
+<br/>
+<div className={styles.listenon}>
+    {badges.map((badge, index) => (
+        <a key={index} href={badge.link}><img src={"/" + badge.name} alt={badge.name.replace(/\.[^/.]+$/, " podcast logo")} /></a>
+    ))}
+</div>
+
+<h3>Latest episodes:</h3>
+
+{posts.map((post, index) => (
+    <div key={index}>
+        <EpisodeCard post={post} />
+    </div>
+))}
+<hr />
+
+<a href="/podcast"><p style={{ fontSize: "1.5em", textDecoration: "underline" }}>More Episodes...</p></a>
+
+</BaseLayout>

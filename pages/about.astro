@@ -1,21 +1,16 @@
-import Link from "next/link";
-import type { Metadata } from 'next'
-
+---
 import styles from '@/styles/about.module.scss';
+import BaseLayout from '@/layouts/baselayout.astro';
 
 export const metadata: Metadata = {
-    title: "About",
-    alternates: { canonical: "https://theridgepodcast.com/about" },
-    description: "About The Ridge Podcast",
     openGraph: {
         url: 'https://theridgepodcast.com/about',
         title: "About",
     }
 }
+---
 
-export default function About() {
-  return (
-    <>
+<BaseLayout title="About" description="About The Ridge Podcast">
     <div className={styles.about}>
         <h1>About Us</h1>
         <p>
@@ -23,14 +18,14 @@ export default function About() {
         Blue Ridge/Appalachian area. Some guests include local officials,
         educators, business owners, historians, and people willing to share
         their stories. Episodes touch on local politics, community service,
-        culture, history, education, faith, and more. Some notable guests include <Link href="/podcast/99-john-reid-republican-candidate-for-lieutenant-governor-politics-campaigning-platform-family">John Reid</Link>
-        , <Link href="/podcast/49-beth-macy-dopesick-roanoke-times-factory-man-writing-journalism-research">Beth Macy</Link>
-        , <Link href="/podcast/27-us-congressman-morgan-griffith-law-school-politics-family-coal-energy-insurance-advice">Morgan Griffith</Link>
-        , <Link href="/podcast/45-sam-bush-musician-bluegrass-grammys-mandolin-fiddle-singing-new-grass-revival">Sam Bush</Link>
-        , <Link href="/podcast/34-walter-rugaber-journalism-new-york-times-roanoke-times-richard-nixon-northwestern-georgia-watergate-civil-rights-humanities">Walter Rugaber</Link>
-        , <Link href="/podcast/50-josh-deel-pbs-appalachia-hometowns-film-making-baseball-documentaries-entrepreneur">Josh Deel</Link>
-        , <Link href="/podcast/15-john-bennardo-wheel-of-fortune-hollywood-afv-author-film-director-2-bill-just-a-typo-film-school">John Bennardo</Link>
-        , and so <Link href="/podcast">many more</Link>.
+        culture, history, education, faith, and more. Some notable guests include <a href="/podcast/99-john-reid-republican-candidate-for-lieutenant-governor-politics-campaigning-platform-family">John Reid</a>,
+        <a href="/podcast/49-beth-macy-dopesick-roanoke-times-factory-man-writing-journalism-research">Beth Macy</a>,
+        <a href="/podcast/27-us-congressman-morgan-griffith-law-school-politics-family-coal-energy-insurance-advice">Morgan Griffith</a>,
+        <a href="/podcast/45-sam-bush-musician-bluegrass-grammys-mandolin-fiddle-singing-new-grass-revival">Sam Bush</a>,
+        <a href="/podcast/34-walter-rugaber-journalism-new-york-times-roanoke-times-richard-nixon-northwestern-georgia-watergate-civil-rights-humanities">Walter Rugaber</a>,
+        <a href="/podcast/50-josh-deel-pbs-appalachia-hometowns-film-making-baseball-documentaries-entrepreneur">Josh Deel</a>,
+        <a href="/podcast/15-john-bennardo-wheel-of-fortune-hollywood-afv-author-film-director-2-bill-just-a-typo-film-school">John Bennardo</a>,
+        and so <a href="/podcast">many more</a>.
         </p>
         <p>
         For the first 72 episodes, Ethan Carter Edwards was joined by Jeffrey
@@ -91,7 +86,4 @@ export default function About() {
         <h2>Licensing</h2>
         <p>Unless otherwise noted, all recordings are published under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 (CC-BY 4.0) license</a>.</p>
     </div>
-    </>
-  );
-}
-
+</BaseLayout>

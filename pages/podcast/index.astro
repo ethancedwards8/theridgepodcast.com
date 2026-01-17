@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/baselayout.astro';
+import EpisodeCard from '@/components/episodecard';
+
+import { getAllPostsNoContent } from '@/lib/episodes';
+
+const posts = getAllPostsNoContent();
+
+// export const metadata = {
+//alternates: { canonical: "https://theridgepodcast.com/podcast" },
+//title: "Episode Archive",
+//description: "The Ridge Podcast Episode Archive",
+//openGraph: {
+//url: 'https://theridgepodcast.com/podcast',
+//title: "Episode Archive",
+//}
+//}
+---
+
+<BaseLayout title="Episode Archive" description="The Ridge Podcast Episode Archive">
+    <h1>Episode Archive:</h1>
+    <div>
+        {posts.map((post, index) => (
+            <div key={index}>
+                <EpisodeCard post={post} />
+            </div>
+        ))}
+    </div>
+</BaseLayout>

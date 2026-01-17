@@ -1,20 +1,19 @@
-import Link from 'next/link';
 import styles from '../styles/header.module.scss';
 
 export default function Header() {
     return (
         <nav className={styles.nav}>
-            <Link href="/"><img src="https://media.theridgepodcast.com/favicon.svg" alt="The Ridge Podcast Logo" /></Link>
+            <a href="/"><img src="https://media.theridgepodcast.com/favicon.svg" alt="The Ridge Podcast Logo" /></a>
             <div>
-                <Link href="/"><h2>The Ridge Podcast</h2></Link>
+                <a href="/"><h2>The Ridge Podcast</h2></a>
                 <ul>
-                    <li><Link href="/">Home</Link></li>
-                    <li><Link href="/podcast">Episodes</Link></li>
-                    <li><Link href="/about">About</Link></li>
-                    <li><Link href="/sftr">SFTR</Link></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/podcast">Episodes</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/sftr">SFTR</a></li>
                 </ul>
             </div>
         </nav>
     );
-                    // <li><Link href="/contact">Contact</Link></li>
+                    // <li><a href="/contact">Contact</a></li>
 }

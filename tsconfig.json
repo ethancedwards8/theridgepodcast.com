@@ -27,17 +27,22 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "jsxImportSource": "react"
   },
+  "extends": "astro/tsconfigs/strict",
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    ".astro/types.d.ts",
+    "**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }
