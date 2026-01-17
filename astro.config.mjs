@@ -10,8 +10,12 @@ import react from '@astrojs/react';
 export default defineConfig({
     site: 'https://theridgepodcast.com',
     integrations: [mdx(), sitemap(), react()],
+    output: "static",
     prefetch: true,
     srcDir: './',
+    preview: {
+        allowedHosts: ["theridgepodcast.com"],
+    },
     redirects: {
         "/about-us": "about",
         "/episode/the-ridge-podcast": "/podcast"
