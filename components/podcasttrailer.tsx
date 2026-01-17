@@ -1,4 +1,4 @@
-function PodcastTrailer() {
+export default function PodcastTrailer() {
     return (
         <>
 <strong>Podcast Information:</strong>
@@ -25,5 +25,3 @@ function PodcastTrailer() {
         </>
     );
 }
-
-export { PodcastTrailer }

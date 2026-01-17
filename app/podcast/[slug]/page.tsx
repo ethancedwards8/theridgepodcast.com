@@ -6,10 +6,10 @@ import path from 'path';
 import dayjs from 'dayjs';
 import MyAudioPlayer from '@/components/AudioPlayer';
 import YTPlayer from '@/components/youtubeplayer';
-import { PodcastTrailer } from '@/components/podcasttrailer';
+import PodcastTrailer from '@/components/podcasttrailer';
 import styles from '@/styles/podcast.module.scss';
 
-const components = { PodcastTrailer };
+const components = {};
 
 export async function generateStaticParams() {
     const files = fs.readdirSync(path.join(process.cwd(), 'episodes'));
@@ -64,6 +64,8 @@ export default async function EpisodePage({ params }) {
             <hr/>
             <main>
                 <MDXRemote source={content} components={components} />
+
+                <PodcastTrailer />
             </main>
             {frontMatter.youtube && <YTPlayer id={frontMatter.youtube} />}
         </div>
