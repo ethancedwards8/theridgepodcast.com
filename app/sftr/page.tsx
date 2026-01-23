@@ -35,7 +35,7 @@ export default function SFTR() {
             <p>
             If you would like to submit your own recordings, please feel free to reach
             out at <a href="mailto:theridgepodcast@gmail.com"> theridgepodcast@gmail.com</a>.
-            Alternatively, if you have not recorded an episode yet but would like some starting
+            Alternatively, if you have not recorded an interview yet but would like some starting
             questions to ask to get the interview flowing naturally, here are a few:
             </p>
             <ul>
