@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dayjs": "^1.11.19",
+    "dayjs": "^1.11.20",
     "gray-matter": "^4.0.3",
-    "music-metadata": "^11.10.4",
+    "music-metadata": "^11.12.3",
     "next": "16.1.1",
     "next-mdx-remote": "^5.0.0",
-    "next-seo": "^7.0.1",
+    "next-seo": "^7.2.0",
     "podcast": "^2.0.1",
     "react": "19.2.3",
     "react-audio-play": "^1.0.4",
@@ -23,10 +23,10 @@
   },
   "type": "module",
   "devDependencies": {
-    "@types/node": "^20.19.27",
-    "@types/react": "^19.2.7",
+    "@types/node": "^20.19.41",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "sass": "^1.97.1",
+    "sass": "^1.99.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
